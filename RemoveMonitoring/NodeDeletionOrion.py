@@ -62,7 +62,8 @@ def get_all_prtg_devices():
             'columns': 'objid,device',
             'username': PRTG_USER,
             'passhash': PRTG_PASS,
-            'count': 2500,
+            #50,000 is the max amount of sensors that can be grabbed
+            'count': 50000,
             'start': start
         }
         try:
@@ -86,7 +87,7 @@ def get_all_prtg_devices():
         if len(all_devices) >= treesize:
             break
 
-        start += 2500
+        start += 25000
 
     return all_devices
 
